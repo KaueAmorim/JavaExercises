@@ -1,0 +1,25 @@
+classDiagram
+    direction TD
+
+    class Atendente {
+        <<abstract>>
+        #nome: String
+        #matricula: String
+        #disciplina: String
+        +disponibilizarHorarios(): String
+        +tirarDuvidas(): String
+    }
+
+    class Monitor {
+        +enviarRelatorio(): String
+        +disponibilizarHorarios(): String
+        +tirarDuvidas(): String
+    }
+
+    class Petiano {
+        +disponibilizarHorarios(): String
+        +tirarDuvidas(): String
+    }
+
+    Atendente <|-- Monitor
+    Atendente <|-- Petiano
