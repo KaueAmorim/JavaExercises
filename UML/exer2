@@ -1,0 +1,53 @@
+classDiagram
+    direction TD
+
+    class ModalidadeEsportiva {
+        <<abstract>>
+        #objetivo: String
+        #regraPrincipal: String
+    }
+
+    class Fitness {
+        <<abstract>>
+        #duracaoMedia: Tempo
+        +aplicarPrincipioProgressao(): void
+    }
+
+    class Luta {
+        <<abstract>>
+        #equipamentos: List~String~
+        #vestuarios: List~String~
+        #estrategias: List~String~
+        +garantirSeguranca(): void
+    }
+
+    class Musculacao {
+        -cargaPesoKg: double
+        +definirCarga(peso: double): void
+    }
+
+    class Spinning {
+        -nivelResistencia: int
+        +definirResistencia(nivel: int): void
+    }
+
+    class Boxe {
+        %% Atributos específicos podem ser adicionados aqui se necessário
+    }
+
+    class MuayThai {
+        %% Atributos específicos podem ser adicionados aqui se necessário
+    }
+
+    class Tempo {
+      +horas: int
+      +minutos: int
+    }
+
+    ModalidadeEsportiva <|-- Fitness
+    ModalidadeEsportiva <|-- Luta
+    Fitness <|-- Musculacao
+    Fitness <|-- Spinning
+    Luta <|-- Boxe
+    Luta <|-- MuayThai
+    Fitness o-- Tempo : tem uma

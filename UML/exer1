@@ -1,0 +1,31 @@
+classDiagram
+    direction LR
+
+    class Passageiro {
+        <<abstract>>
+        #nome: String
+        #numeroVoo: String
+        +fazerCheckIn(): void
+        +passarControleSeguranca(): void
+        +despacharBagagem(): void*
+    }
+
+    class PassageiroEconomica {
+        +despacharBagagem(): void
+    }
+
+    class PassageiroExecutiva {
+        +despacharBagagem(): void
+        +acessarSalaVip(): void
+        +usarPrioridadeEmbarque(): void
+    }
+
+    class Privilegios {
+        <<interface>>
+        +acessarSalaVip(): void
+        +usarPrioridadeEmbarque(): void
+    }
+
+    Passageiro <|-- PassageiroEconomica
+    Passageiro <|-- PassageiroExecutiva
+    Privilegios <|.. PassageiroExecutiva
